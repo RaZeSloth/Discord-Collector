@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "async-lock": "^1.2.4",
-        "discord.js": "^12.3.1",
+        "discord.js": "^13.0.0-dev.t1627778678.74fc23b",
         "mongoose": "^5.10.7",
         "mquery": ">=3.2.3"
     },

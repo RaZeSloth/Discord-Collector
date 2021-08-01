@@ -15,7 +15,7 @@ class MessageCollector {
      * @param {Message} options.botMessage - Message sent from bot.
      * @param  {UserResolvable} options.user - UserResolvable who will react.
      * @param {MessageCollectorOptions} [options.collectorOptions=null] - Message collector options
-     * @param {Funciton} [options.onMessage] - Triggered when user sent a message
+     * @param {Function} [options.onMessage] - Triggered when user sent a message
      * @param {boolean} [options.deleteMessage=true] - Message sent from bot.
      * @note Trigger when user sent a message must be like onMessage(botMessage, message) => {};
      * @returns {void}
@@ -58,7 +58,7 @@ class MessageCollector {
             filter,
             collectorOptions,
         );
-        collector.on('collect', async (message) => {
+        collector.on('collect', async (/** @type {Message}*/message) => {
             if (deleteMessage) await message.delete();
             await onMessage(botMessage, message);
         });
