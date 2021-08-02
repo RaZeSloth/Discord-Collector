@@ -78,9 +78,12 @@ class MessageCollector {
                 deleteMessage,
             } = _options;
             const filter = (message) => message.author.id === user.id && !message.author.bot;
+            let awaitMessagesObject = {
+                ...filter,
+                ...collectorOptions,
+            }
             const caughtMessages = await botMessage.channel.awaitMessages(
-                filter,
-                collectorOptions,
+                awaitMessagesObject
             );
             if (caughtMessages.size > 0) {
                 const message = caughtMessages.first();
