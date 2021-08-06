@@ -24,7 +24,7 @@ import Discord, {
 
 import { EventEmitter } from "events";
 
-declare module "discord.js-collector" {
+declare module "discord-collector" {
   export enum ActionType {
     UNKNOWN = 0,
     GIVE = 1,
