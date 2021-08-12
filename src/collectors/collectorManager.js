@@ -5,7 +5,7 @@ module.exports = class CollectorManager {
         /**
          * @type {Collection<string, object[]>}
          */
-        __collectors = new Collection();
+       const __collectors = new Collection();
         /**
          * @type {Client}
          */

@@ -58,7 +58,7 @@ class MessageCollector {
             filter,
             collectorOptions,
         );
-        collector.on('collect', async (/** @type {Message}*/message) => {
+        collector.on('collect', async (/**  @type {Message} */message) => {
             if (deleteMessage) await message.delete();
             await onMessage(botMessage, message);
         });

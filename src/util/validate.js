@@ -37,17 +37,17 @@ module.exports.validateOptions = (options, type) => {
         }
     }
 
-    if (options.botMessage.channel.type === 'dm') validOptions.deleteReaction = false;
+    if (options.botMessage.channel.type === 'DM') validOptions.deleteReaction = false;
     else if (type === 'reactMenu') validOptions.deleteReaction = true;
     else if (options.deleteReaction === undefined) validOptions.deleteReaction = true;
-    else if (!isBoolean(options.deleteReaction)) validOptions.deleteReaction = Boolean(options.deleteReaction);
+    else if (typeof (options.deleteReaction) !== 'boolean') validOptions.deleteReaction = Boolean(options.deleteReaction);
 
-    if (options.botMessage.channel.type === 'dm') validOptions.deleteAllOnEnd = false;
+    if (options.botMessage.channel.type === 'DM') validOptions.deleteAllOnEnd = false;
     else if (type === 'reactMenu' || type === 'reactPaginator') validOptions.deleteAllOnEnd = true;
     else if (options.deleteAllOnEnd === undefined) validOptions.deleteAllOnEnd = true;
     else if (!isBoolean(options.deleteAllOnEnd)) validOptions.deleteAllOnEnd = Boolean(options.deleteAllOnEnd);
 
-    if (options.botMessage.channel.type === 'text') {
+    if (options.botMessage.channel.type === 'GUILD_TEXT') {
         if (
             !options.botMessage.guild.me
                 .permissionsIn(options.botMessage.channel)

@@ -268,7 +268,7 @@ class ReactionRoleManager extends EventEmitter {
      * Handle some delete event, and resolve delete reaction role.
      * @private
      * @param {ReactionRole} reactionRole - Reaction Role to delete.
-     * @param {GuildResolvable} guildResolvable - Guild where need delete reaction role.
+     * @param {import('discord.js').GuildResolvable} guildResolvable - Guild where need delete reaction role.
      * @return {Promise<void>}
      */
     async __handleDeleted(reactionRole, guildResolvable, callback = () => this.deleteReactionRole({ reactionRole }, true)) {
