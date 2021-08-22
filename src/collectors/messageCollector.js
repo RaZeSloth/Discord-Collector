@@ -54,10 +54,11 @@ class MessageCollector {
             deleteMessage,
         } = _options;
         const filter = (message) => message.author.id === user.id && !message.author.bot;
-        const collector = botMessage.channel.createMessageCollector(
-            filter,
-            collectorOptions,
-        );
+        let awaitMessagesObject = {
+            ...filter,
+            ...collectorOptions,
+        }
+        const collector = botMessage.channel.createMessageCollector(awaitMessagesObject);
         collector.on('collect', async (/**  @type {Message} */message) => {
             if (deleteMessage) await message.delete();
             await onMessage(botMessage, message);
