@@ -230,17 +230,20 @@ class ReactionCollector {
             && (allReactions.includes(r.emoji.id)
                 || allReactions.includes(r.emoji.name))
             && !user.bot;
+        const colOptions = {
+            ...filter,
+            ...collectorOptions,
+        }
         const collector = botMessage.createReactionCollector(
-            filter,
-            collectorOptions,
+            colOptions
         );
         const controller = new Controller(botMessage, collector, pages);
         collector.on('collect', async (reaction) => {
             const emoji = reaction.emoji.id || reaction.emoji.name;
             if (
                 controller.currentPage
-                    && emoji === controller.currentPage.backEmoji
-                    && controller.canBack
+                && emoji === controller.currentPage.backEmoji
+                && controller.canBack
             ) {
                 controller.back();
                 return;
@@ -265,10 +268,7 @@ class ReactionCollector {
         collector.on('end', async () => botMessage.reactions.removeAll());
 
         if (needCollectMessages) {
-            const messagesCollector = botMessage.channel.createMessageCollector(
-                (message) => message.author.id === user.id,
-                collectorOptions,
-            );
+            const messagesCollector = botMessage.channel.createMessageCollector({ filter: (message) => message.author.id === user.id, collectorOptions });
             controller.messagesCollector = messagesCollector;
             messagesCollector.on('collect', async (message) => {
                 if (message.deletable) await message.delete();
@@ -405,12 +405,15 @@ class ReactionCollector {
         const reactions = Object.keys(reactionsMap) || reactionsMap;
         await Promise.all(reactions.map((r) => botMessage.react(r)));
         const filter = (r, u) => u.id === user.id
-                && (reactions.includes(r.emoji.id)
-                    || reactions.includes(r.emoji.name))
-                && !user.bot;
+            && (reactions.includes(r.emoji.id)
+                || reactions.includes(r.emoji.name))
+            && !user.bot;
+        const coloptions = {
+            ...filter,
+            ...collectorOptions,
+        }
         const collector = botMessage.createReactionCollector(
-            filter,
-            collectorOptions,
+            coloptions
         );
         collector.on('collect', async (reaction) => {
             const emoji = reaction.emoji.id || reaction.emoji.name;
@@ -448,9 +451,12 @@ class ReactionCollector {
                 && (reactions.includes(r.emoji.id)
                     || reactions.includes(r.emoji.name))
                 && !user.bot;
+            const options = {
+                ...filter,
+                ...collectorOptions,
+            }
             const caughtReactions = await botMessage.awaitReactions(
-                filter,
-                collectorOptions,
+                options
             );
             if (caughtReactions.size > 0) {
                 const reactionCollected = caughtReactions.first();
@@ -460,7 +466,7 @@ class ReactionCollector {
                     reactions.indexOf(
                         reactionCollected.emoji
                             ? reactionCollected.emoji.name
-                                  || reactionCollected.emoji.id
+                            || reactionCollected.emoji.id
                             : reactionCollected.name || reactionCollected.id,
                     ) === 0,
                 );
