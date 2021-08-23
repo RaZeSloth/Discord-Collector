@@ -15,7 +15,7 @@ Thank you for using discord-collector! ❤
 
 ---
 
-## Sumary
+## Summary
 ◘ Reactions Collectors:\
 | [Reaction Role](#reaction-role)\
 | [Menu](#reaction-menu)\

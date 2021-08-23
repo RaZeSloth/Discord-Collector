@@ -1,4 +1,4 @@
-const { ReactionCollector } = require('discord.js-collector')
+const { ReactionCollector } = require('discord-collector')
 const { Client } = require("discord.js");
 const client = new Client();
 client.on("ready", () => {
@@ -20,8 +20,8 @@ client.on("message", async (message) => {
     }
 });
 
-// Or you can create choises to execute when user pick his choise
-client.on("message", async (message) => {
+// Or you can create choices to execute when user pick his choice
+client.on("messageCreate", async (message) => {
     if (message.content.startsWith('>poll')) {
         const botMessage = await message.reply('Some question to create poll here');
         ReactionCollector.question({

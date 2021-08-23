@@ -1,5 +1,5 @@
 
-const { MessageCollector } = require("discord.js-collector");
+const { MessageCollector } = require("discord-collector");
 
 const { Client } = require("discord.js");
 const client = new Client();
@@ -7,7 +7,7 @@ client.on("ready", () => {
     console.log("ready");
 });
 
-client.on("message", async (message) => {
+client.on("messageCreate", async (message) => {
     if (message.content.startsWith('>question')) {
         const botMessage = await message.channel.send("Awaiting a message");
         MessageCollector.question({

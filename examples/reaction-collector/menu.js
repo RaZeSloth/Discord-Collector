@@ -1,4 +1,4 @@
-const { ReactionCollector } = require('discord.js-collector')
+const { ReactionCollector } = require('discord-collector')
 const { Client, MessageEmbed } = require("discord.js");
 const client = new Client();
 client.on("ready", () => {
@@ -46,7 +46,7 @@ client.on("message", async (message) => {
         const embed = new MessageEmbed()
             .setTitle('Server Settings')
             .setDescription('React below to configure modules in this server.\n\n📥 Welcome module')
-        const botMessage = await message.reply(embed);
+        const botMessage = await message.reply({embeds: [embed]});
         ReactionCollector.menu({ botMessage, user: message.author, pages });
     }
 });

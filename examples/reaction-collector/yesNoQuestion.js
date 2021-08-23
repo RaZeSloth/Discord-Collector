@@ -1,4 +1,4 @@
-const { ReactionCollector } = require('discord.js-collector');
+const { ReactionCollector } = require('discord-collector');
 const { Client } = require("discord.js");
 const client = new Client();
 client.on("ready", () => {
