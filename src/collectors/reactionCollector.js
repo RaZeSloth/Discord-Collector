@@ -231,7 +231,7 @@ class ReactionCollector {
                 || allReactions.includes(r.emoji.name))
             && !user.bot;
         const colOptions = {
-            ...filter,
+            filter,
             ...collectorOptions,
         }
         const collector = botMessage.createReactionCollector(
@@ -409,7 +409,7 @@ class ReactionCollector {
                 || reactions.includes(r.emoji.name))
             && !user.bot;
         const coloptions = {
-            ...filter,
+            filter,
             ...collectorOptions,
         }
         const collector = botMessage.createReactionCollector(
@@ -452,7 +452,7 @@ class ReactionCollector {
                     || reactions.includes(r.emoji.name))
                 && !user.bot;
             const options = {
-                ...filter,
+                filter,
                 ...collectorOptions,
             }
             const caughtReactions = await botMessage.awaitReactions(

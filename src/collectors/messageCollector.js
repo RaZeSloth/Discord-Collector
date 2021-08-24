@@ -54,8 +54,8 @@ class MessageCollector {
             deleteMessage,
         } = _options;
         const filter = (message) => message.author.id === user.id && !message.author.bot;
-        let awaitMessagesObject = {
-            ...filter,
+        const awaitMessagesObject = {
+            filter,
             ...collectorOptions,
         }
         const collector = botMessage.channel.createMessageCollector(awaitMessagesObject);
@@ -79,12 +79,12 @@ class MessageCollector {
                 deleteMessage,
             } = _options;
             const filter = (message) => message.author.id === user.id && !message.author.bot;
-            let awaitMessagesObject = {
-                ...filter,
+            const awaitMessagesObject = {
+                filter,
                 ...collectorOptions,
             }
             const caughtMessages = await botMessage.channel.awaitMessages(
-                awaitMessagesObject
+                awaitMessagesObject,
             );
             if (caughtMessages.size > 0) {
                 const message = caughtMessages.first();
