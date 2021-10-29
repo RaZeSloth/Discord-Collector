@@ -306,7 +306,7 @@ declare module "discord-collector" {
   }
 
   export interface IMessageQuestionOptions {
-    botMessage: Message;
+    botMessage: Message | Message<boolean>;
     user: UserResolvable | User;
     onMessage?: (botMessage: Message) => {};
     reactions?: EmojiIdentifierResolvable[];
