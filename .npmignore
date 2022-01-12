@@ -3,21 +3,21 @@ examples/*
 assets/*
 
 # Ignore built-in files
-node_modules/*
-.github/*
-tests/*
-test/*
-examples/*
-docs/*
-assets/*
+node_modules/
+.github/
+tests/
+test/
+examples/
+docs/
+assets/
 .jsdoc.json
 tsconfig.json
 .eslint.json
 
 # Ignore output files
-build/*
-out/*
-docs/*
+build/
+out/
+docs/
 
 # Ignore unsefull files
 yarn-error.log
