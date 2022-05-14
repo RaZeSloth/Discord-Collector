@@ -57,7 +57,7 @@ class MessageCollector {
         const awaitMessagesObject = {
             filter,
             ...collectorOptions,
-        }
+        };
         const collector = botMessage.channel.createMessageCollector(awaitMessagesObject);
         collector.on('collect', async (/**  @type {Message} */message) => {
             if (deleteMessage) await message.delete();
@@ -82,7 +82,7 @@ class MessageCollector {
             const awaitMessagesObject = {
                 filter,
                 ...collectorOptions,
-            }
+            };
             const caughtMessages = await botMessage.channel.awaitMessages(
                 awaitMessagesObject,
             );

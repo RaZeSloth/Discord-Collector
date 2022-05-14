@@ -233,9 +233,9 @@ class ReactionCollector {
         const colOptions = {
             filter,
             ...collectorOptions,
-        }
+        };
         const collector = botMessage.createReactionCollector(
-            colOptions
+            colOptions,
         );
         const controller = new Controller(botMessage, collector, pages);
         collector.on('collect', async (reaction) => {
@@ -411,9 +411,9 @@ class ReactionCollector {
         const coloptions = {
             filter,
             ...collectorOptions,
-        }
+        };
         const collector = botMessage.createReactionCollector(
-            coloptions
+            coloptions,
         );
         collector.on('collect', async (reaction) => {
             const emoji = reaction.emoji.id || reaction.emoji.name;
@@ -454,9 +454,9 @@ class ReactionCollector {
             const options = {
                 filter,
                 ...collectorOptions,
-            }
+            };
             const caughtReactions = await botMessage.awaitReactions(
-                options
+                options,
             );
             if (caughtReactions.size > 0) {
                 const reactionCollected = caughtReactions.first();

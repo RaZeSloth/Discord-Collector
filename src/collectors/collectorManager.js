@@ -1,18 +1,17 @@
-const { Collection,Client } = require("discord.js")
+const { Collection, Client } = require('discord.js');
 
 module.exports = class CollectorManager {
     constructor(client) {
         /**
          * @type {Collection<string, object[]>}
          */
-       const __collectors = new Collection();
+        const __collectors = new Collection();
         /**
          * @type {Client}
          */
         this.client = client;
 
-        client.on('message',message => {});
-        client.on('messageReactionAdd',handleMessageEvent.bind(this));
+        client.on('message', (message) => {});
+        client.on('messageReactionAdd', handleMessageEvent.bind(this));
     }
-    
-}
+};

@@ -1,7 +1,7 @@
 # Ignore assets
 examples/*
 assets/*
-
+.theia/
 # Ignore built-in files
 node_modules/
 .github/
